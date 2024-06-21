@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}
+WMS|2023
+{% endblock title %}
+
+
+{% block body %}
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+ 
+  <img src="static/images/first.png" class="img-fluid" alt="Responsive image">
+
+
+  <!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!--Grid row-->
+      <div class="row">
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-12 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="static/images/ft5.png" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="static/images/ft4.png" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="static/images/ft3.png" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-12 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="static/images/ft3.jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half" >
+            <img src="static/images/firstn.jpg" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+  
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="static/images/ft1.png" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+  
+        </div>
+        <!--Grid column-->
+  
+      </div>
+      <!--Grid row-->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2023 Copyright:
+      <a href="/"> </a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+{% endblock body %}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin Dashboard
+{% endblock title %}
+
+{% block body %}
+<div class="container my-4">
+
+  <!-- Flash messages -->
+  {% with messages=get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+  <!-- System Performance -->
+  <h2 class="my-4">System Performance</h2>
+  <div class="system-performance">
+    <p>Uptime: {{ system.uptime }}</p>
+    <p>Response Time: {{ system.response_time }}</p>
+  </div>
+
+  <!-- User Management -->
+  <h2 class="my-4">User Management</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">User Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+      <tr>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <a href="/edit-user/{{ user.id }}" class="btn btn-primary">Edit</a>
+          <a href="/delete-user/{{ user.id }}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Collection Management -->
+  <h2 class="my-4">Collection Management</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">User Email</th>
+        <th scope="col">Collection Date</th>
+        <th scope="col">Collection Time</th>
+        <th scope="col">Image</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for collection in collections %}
+      <tr>
+        <td>{{ collection.email }}</td>
+        <td>{{ collection.collectionDate }}</td>
+        <td>{{ collection.collectionTime }}</td>
+        <td><img src="{{ collection.imagePath }}" alt="Collection Image"></td>
+        <td>
+          <a href="/edit-collection/{{ collection.id }}" class="btn btn-primary">Edit</a>
+          <a href="/delete-collection/{{ collection.id }}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Recycling Tracker -->
+  <h2 class="my-4">Recycling Tracker</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">User Email</th>
+        <th scope="col">Recycling Date</th>
+        <th scope="col">Recycling Time</th>
+        <th scope="col">Recycling Type</th>
+        <th scope="col">Recycling Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for recycling in recyclings %}
+      <tr>
+        <td>{{ recycling.email }}</td>
+        <td>{{ recycling.recyclingDate }}</td>
+        <td>{{ recycling.recyclingTime }}</td>
+        <td>{{ recycling.recyclingType }}</td>
+        <td>{{ recycling.recyclingQuantity }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Include the JavaScript file here -->
+<script src="../static/recyclingChart.js"></script>
+
+{% endblock body %}
